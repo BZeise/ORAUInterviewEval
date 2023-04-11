@@ -18,8 +18,8 @@ namespace ORAUInterviewEval.Infrastructure.ViewModels
         [DisplayName("Last Name")]
         public string LastName { get; set; }
 
-        [RegularExpression(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")]
         [Required]
+        [EmailAddress]
         [DisplayName("Primary Email")]
         public string Email { get; set; }
     }
