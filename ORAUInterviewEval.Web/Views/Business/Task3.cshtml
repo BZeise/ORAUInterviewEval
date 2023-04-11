@@ -42,20 +42,19 @@
 			<div class="card">
 				<div class="card-body">
 						
+					<form asp-action="Task3" asp-controller="Business" method="post">
+						<div class="form-group">
+							<label asp-for="Comment" class="form-label"></label>
+							<textarea asp-for="Comment" rows="6" class="form-control" aria-required="true" ></textarea>
+							<span class="text-danger"></span>
+						</div>
 
-					<div class="form-group">
-						<label asp-for="Comment" class="form-label"></label>
-						<textarea asp-for="Comment" rows="6" class="form-control" aria-required="true" ></textarea>
-						<span class="text-danger"></span>
-					</div>
-
-					<div class="row">
-						<div class="col-md-5">
-							<button class="btn-primary btn btn btn-block my-2">Save</button>
-						</div>							
-					</div>
-
-
+						<div class="row">
+							<div class="col-md-5">
+								<button class="btn-primary btn btn btn-block my-2" id="task3SaveButton">Save</button>
+							</div>							
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -68,6 +67,22 @@
 	<partial name="_ValidationScriptsPartial" />
 
 	<script type="text/javascript">
+
+		// this section does nothing, it had problems
+
+		// need to create an event listener for this
+		// but also need to get the form data
+		// but the page isn't set up in a form.  must be a more clever way to approach this
+		function task3AjaxPost = $.ajax({
+			type: "POST",
+			url: '@Url.Action("Business", "Task3AjaxPOST")',
+			dataType: "json",
+			success: () => alert("Comment Saved."),  // Req #2
+			error: () => alert("We had an error!"),
+		});
+
+		$( "#task3SaveButton" ).click(task3AjaxPost);
+
 		
 	</script>
 }

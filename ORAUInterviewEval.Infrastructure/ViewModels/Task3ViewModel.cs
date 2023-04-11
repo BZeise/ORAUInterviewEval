@@ -10,6 +10,8 @@ namespace ORAUInterviewEval.Infrastructure.ViewModels
 {
     public class Task3ViewModel
     {
+        [Required(ErrorMessage = "comment is required")]
+        [MaxLength(100, ErrorMessage ="comment is required and must be under 100 characters")]
         public string Comment { get; set; }
 
     }

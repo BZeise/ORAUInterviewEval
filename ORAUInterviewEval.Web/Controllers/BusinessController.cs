@@ -48,6 +48,12 @@ namespace ORAUInterviewEval.Web.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Task3(Task3ViewModel model)
+        {            
+            _taskService.SaveComment(model.Comment);
+            return View();
+        }
 
 
 
