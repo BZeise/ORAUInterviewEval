@@ -24,6 +24,7 @@ namespace ORAUInterviewEval.Web.Controllers
         [HttpPost]
         public IActionResult Task1(Task1ViewModel model)
         {            
+            _taskService.SaveEmail(model.Email);
             return View();
         }
 
