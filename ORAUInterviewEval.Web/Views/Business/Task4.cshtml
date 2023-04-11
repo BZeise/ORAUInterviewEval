@@ -81,9 +81,18 @@
 
 
 		function addItem(){
+			console.log("running function addItem");
 			$('#item-template .my-item').clone().attr('data-uid', Date.now()).insertAfter('#item-group-target');			
 		}
 
+		function deleteItem(){
+			console.log("clicked delete-item-btn");
+			var uid = $(this).parent().parent().attr('data-uid');			
+			console.log("uid is: ", uid);
+			var whatIsThis = this;		
+			console.log("whatIsThis is: ", whatIsThis);
+			$('#item-group-target div[data-uid=' + uid + ']').remove();	
+		}
 
 		$(document).ready(function(){
 			addItem();
@@ -93,8 +102,7 @@
 			});
 
 			$('.delete-item-btn').click(function(){
-				var uid = $(this).parent().parent().attr('data-uid');
-				$('#item-group-target div[data-uid=' + uid + ']').remove();
+				deleteItem();
 			});
 				
 
